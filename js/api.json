@@ -1,0 +1,63 @@
+{
+  "code":0,
+  "message": "请求成功",
+  "data": {
+    "activityStatus": 3,
+    "userStatus": 2,
+    "finishCount": 0,
+    "activityShare": {
+      "activityId": 7,
+      "shareType": 1,
+      "shareTitleName": "分享titile",
+      "shareTitlePic": "http://wx.funos.cn:8080/fundo-page/advertising_img_2.png",
+      "shareContentUrl": "http://group.funos.cn:8080/fundogroup_activity/index.html",
+      "shareDescription": "sdfssf"
+    },
+    "myRank": {
+      "mid": 1000,
+      "username": "乔丹",
+      "recodeTimes": "2018-09-09 23:00:00",
+      "isWinner": 1,
+      "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+      "rankNumber": 2
+    },
+    "allRank": [
+      {
+        "mid": 1377,
+        "username": "麦迪",
+        "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+        "rankNumber": 1,
+        "recodeTimes":"2018-09-09 24:00:00"
+      },
+      {
+        "mid": 1000,
+        "username": "乔丹",
+        "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+        "rankNumber": 2,
+        "recodeTimes":"2018-09-09 24:00:00"
+      },
+      {
+        "mid": 1000,
+        "username": "乔丹",
+        "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+        "rankNumber": 2,
+        "recodeTimes":"2018-09-09 24:00:00"
+      },
+      {
+        "mid": 1000,
+        "username": "乔丹",
+        "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+        "rankNumber": 2,
+        "recodeTimes":"2018-09-09 24:00:00"
+      },
+      {
+        "mid": 1000,
+        "username": "乔丹",
+        "face": "http://thirdqq.qlogo.cn/qqapp/1106816825/368E740D4C08BD9CBAD1AB182774F2CE/100",
+        "rankNumber": 2,
+        "recodeTimes":"2018-09-09 24:00:00"
+      }
+
+    ]
+  }
+}

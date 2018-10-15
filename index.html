@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--qq浏览器分享-->
+    <meta itemprop="name" content="分动圈 - 介绍">
+    <meta name="description" itemprop="description" content="星座跑之天秤座,分动圈的活动.">
+    <meta itemprop="image" content="">
+    <title>星座跑</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <div class="main">
+        <div class="libra">
+            <img src="img/times.png" alt="time">
+        </div>
+        <!--S 获奖-->
+        <div id="reward" class="reward">
+            <ul class="reward-member">
+                <li>
+                    <img src="img/头像.png" alt="avatar" class="reward-head">
+                    <div class="reward-name text-overflow"></div>
+                    <div class="reward-id text-overflow">
+                        <span>ID:</span>
+                        <span class="id"></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/头像.png" alt="avatar" class="reward-head">
+                    <div class="reward-name text-overflow"></div>
+                    <div class="reward-id text-overflow">
+                        <span>ID:</span>
+                        <span class="reward-id"></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/头像.png" alt="avatar" class="reward-head">
+                    <div class="reward-name text-overflow"></div>
+                    <div class="reward-id text-overflow">
+                        <span>ID:</span>
+                        <span class="reward-id"></span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!--E 获奖-->
+        <!--S 排行榜-->
+        <div id="rank" class="rank">
+            <div class="rank-header">
+                <div id="complete" class="complete"></div>
+                <div id="paiming" class="paiming"></div>
+            </div>
+            <div class="rank-body">
+                <div class="table-title">
+                    <div class="title-item">排名</div>
+                    <div class="title-item">用户</div>
+                    <div class="title-item">完成时间</div>
+                </div>
+                <ul id="rank-list" class="rank-list">
+                    <!--<li>-->
+                        <!--<span class="index">01</span>-->
+                        <!--<img src="img/头像.png" alt="avatar" class="avatar">-->
+                        <!--<span class="username text-overflow">我是方式发顺丰说法是否</span>-->
+                        <!--<span class="complete-date text-overflow">2018.10.20 20:4</span>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+        <!--E 排行榜-->
+        <div class="detail">
+            <img src="img/detail.png" alt="detail">
+        </div>
+        <div class="video-wrap">
+            <video width="100%" height="100%" controls>
+                <source src="http://group.fundo.xyz/fundogroup_activity_video/%E5%A4%A9%E7%A7%A4%E5%BA%A7.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="tips">
+            <div class="title">
+                <img src="img/tips.png" alt="title">
+            </div>
+            <div class="run">
+                <div class="running">
+                    <p>跑步前</p>
+                    <span>进入</span>
+                </div>
+                <div class="running">
+                    <p>跑步前</p>
+                    <span>进入</span>
+                </div>
+                <div class="running">
+                    <p>跑步前</p>
+                    <span>进入</span>
+                </div>
+
+            </div>
+        </div>
+        <div id="btn" class="btn"></div>
+    </div>
+    <!--S 分享-->
+    <div id="share-bg" class="share-bg">
+        <div class="share-inner">
+            <div id="share-close" class="close"></div>
+            <div class="share-box">
+                <ul class="share-pic">
+                    <li>
+                        <div class="info">
+                            <img src="img/头像.png" alt="head" class="head">
+                            <span class="full-name">Dua Li</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <img src="img/头像.png" alt="head" class="head">
+                            <span class="full-name">Dua 2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <img src="img/头像.png" alt="head" class="head">
+                            <span class="full-name">Dua 3</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <img src="img/头像.png" alt="head" class="head">
+                            <span class="full-name">Dua 4</span>
+                        </div>
+                    </li>
+                </ul>
+                <div id="change" class="change"><i class="arrow"></i>换一张</div>
+            </div>
+            <div id="share-btn" class="share-btn">分享</div>
+        </div>
+    </div>
+    <!--E 分享-->
+    <!--S 填写领奖地址-->
+    <div id="user-addr" class="user-addr">
+        <div class="addr-inner">
+            <div id="addr-close" class="close"></div>
+            <div class="info">
+                <div class="i-head"></div>
+                <div class="i-body">
+                    <p id="info-error"></p>
+                    <ul>
+                        <li>
+                            <span>姓名</span><input type="text" id="user-name">
+                        </li>
+                        <li>
+                            <span>电话</span><input type="text" id="user-phone">
+                        </li>
+                        <li>
+                            <span>地址</span
+                            ><textarea id="user-address" cols="30" rows="10"></textarea>
+                        </li>
+
+                    </ul>
+                    <div id="tijiao" class="submit">提交</div>
+                    <div class="red-wrap"><i class="red">* </i>请在2018.10.26 24:00前填写领奖信息</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 填写领奖地址-->
+
+
+    <script src="js/util.js"></script>
+    <script src="js/es6-promise.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+<script>
+
+    var queryUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/queryMyActivityInfo.do";
+    var signUpUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/signUpActivity.do";
+    var submitInfoUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/insertFundoAwardeeInfo.do";
+    var isSubmitInfoUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/queryAwardeeInfo.do";
+    var btn = document.getElementById("btn");
+    var mid = getQueryString("mid");
+    var dataBase64;
+    var shareObj= {
+        "shareTitleName": "12星座跑-完美之神-天秤座",
+        "shareTitlePic": "http://wx.funos.cn:8080/fundo-page/advertising_img_2.png",
+        "shareContentUrl": "http://group.funos.cn:8080/fundogroup_activity/index.html",
+        "shareDescription": "没错! 我就是那个跑完3公里, 发型依然完美的可人儿"
+    };
+    function share() {
+        return shareObj;
+    }
+
+    if(mid != null) {
+        var params = {
+            mid: mid,
+            activityId: 7
+        };
+        axios.get('js/api.json', {
+            params: params
+        })
+        .then(function (response) {
+            if(response.status === 200) {
+                var res = response.data;
+
+                console.log(response)
+                console.log(res)
+                console.log(res.data)
+
+                if(res.code === 0) {
+                    var aSta = res.data.activityStatus;
+                    var uSta = res.data.userStatus;
+                    var myRank = res.data.myRank;
+
+                    if(aSta === 0) {
+                        btn.innerText = "活动即将开始";
+                        btn.className += " grey";
+                    }else if(aSta === 1) {
+                        if(uSta === 0) {
+                            btn.innerText = "活动报名";
+                            // 报名
+                            var params = {
+                                mid: mid,
+                                activityId: 7
+                            };
+                            axios.get(signUpUrl, {
+                                params: params
+                            }).then(function (response) {
+                                if(response.status === 200) {
+                                    var res = response.data;
+                                    if(res.code === 0) {
+                                        btn.innerText = "报名成功";
+                                        setTimeout(function () {
+                                            location.reload();
+                                        },1000)
+                                    }else {
+                                        alert(res.message);
+                                    }
+                                }
+                            })
+                        }else if(uSta === 1){
+                            btn.innerText = "报名成功,等待开始"
+                        }else {
+                            alert("userStatus:"+uSta);
+                            btn.style.display = "none";
+                        }
+                    }else if(aSta === 2) {
+                        var paiming = document.getElementById("paiming");
+                        var finishCount = 0;
+                        if(res.data.finishCount) finishCount = res.data.finishCount;
+                        document.getElementById("rank").style.display = "block";
+                        document.getElementById("complete").innerText = finishCount;
+
+                        // 显示排行榜
+                        showRank(res);
+                        if(uSta === 0) {
+                            paiming.innerText = "--";
+                            btn.innerText = "报名已结束";
+                            btn.className += " grey";
+                        }else if(uSta === 1) {
+                            paiming.innerText = myRank.rankNumber;
+                            btn.innerText = "运动打卡";
+                            btn.addEventListener("click", pushCard ,false);
+                        }else if(uSta === 2){
+                            paiming.innerText = myRank.rankNumber;
+                            btn.innerText = "喜大普奔,完成活动";
+                            // 分享
+                            btn.addEventListener("click", function () {
+                                var index = 0;
+                                var shareBg = document.getElementById("share-bg");
+                                var shareClose = document.getElementById("share-close");
+                                shareBg.style.display = "block";
+                                var liArr = document.querySelectorAll(".share-bg .share-pic li");
+                                var change = document.getElementById("change");
+                                var shareBtn = document.getElementById("share-btn");
+                                liArr[index].style.opacity = "1";
+                                getBase64Image(liArr[index]);
+
+                                shareClose.addEventListener("touchstart", function () {
+                                     shareBg.style.display = "none";
+                                },false);
+                                // 切换图片
+                                change.addEventListener("touchstart", function () {
+                                    liArr[index].style.opacity = "0";
+                                    index ++;
+                                    if(index > 3) {
+                                        index = 0;
+                                    }
+                                    liArr[index].style.opacity = "1";
+                                    getBase64Image(liArr[index]);
+                                },false);
+                                // 分享
+                                shareBtn.addEventListener("touchstart", function () {
+                                    base64PicToAPP();
+                                },false)
+
+                            },false)
+                        }else {
+                            alert("userStatus:"+uSta);
+                        }
+                    }else if(aSta === 3) {
+                        if(uSta === 0) {
+                            btn.innerText = "您未报名";
+                        }else if(uSta === 1) {
+                            btn.innerText = "您未完成";
+                        }else if(uSta === 2) {
+                            // 判断完成的用户是否中奖
+                            if(res.data.myRank.isWinner === 0){
+                                btn.style.display = "none";
+                            }else if(res.data.myRank.isWinner === 1) {
+                                // 是否提交个人信息
+                                var params = {
+                                    mid: mid,
+                                    activityId: 7
+                                };
+                                axios.get(isSubmitInfoUrl, {
+                                    params: params
+                                })
+                                .then(function (response) {
+                                    var res = response.data;
+                                    if(res.code === 0) {
+                                        if(res.data.isFinish === 1) {
+                                            btn.innerText = "已填写信息,等待发放奖品";
+                                        }else if(res.data.isFinish === 0) {
+                                            // 没填写,地址
+                                            btn.innerText = "填写地址,领取奖品";
+                                            btn.addEventListener("click", function () {
+                                                var userAddr = document.getElementById("user-addr");
+                                                var addrClose = document.getElementById("addr-close");
+                                                var infoError = document.getElementById("info-error");
+                                                var username = document.getElementById("user-name");
+                                                var phone = document.getElementById("user-phone");
+                                                var address = document.getElementById("user-address");
+                                                var tijiao = document.getElementById("tijiao");
+
+                                                userAddr.style.display = "block";
+                                                addrClose.addEventListener("touchstart", function () {
+                                                    userAddr.style.display = "none";
+                                                });
+
+                                                phone.addEventListener("change", function () {
+                                                    if(this.value === '') {
+                                                        infoError.innerText = "";
+                                                    }else if(!(/^1[34578]\d{9}$/.test(this.value))){
+                                                        infoError.innerText = "请输入正确的电话号码";
+                                                    }
+                                                },false);
+
+                                                tijiao.addEventListener("touchstart",function () {
+                                                    if(username.value === '') {
+                                                        infoError.innerText = "请输入用户名";
+                                                    }else {
+                                                        if(phone.value === '') {
+                                                            infoError.innerText = "请输入电话号码";
+                                                        }else if(!(/^1[34578]\d{9}$/.test(this.value))) {
+                                                            infoError.innerText = "请输入正确的电话号码";
+                                                        }else {
+                                                            if(address.value === '') {
+                                                                infoError.innerText = "请输入地址";
+                                                            }else {
+                                                                // 没填写,地址
+                                                                var params = {
+                                                                    mid: mid,
+                                                                    activityId: 7,
+                                                                    username: username,
+                                                                    phone: phone,
+                                                                    address: address
+                                                                };
+                                                                axios.get(submitInfoUrl, {
+                                                                    params: params
+                                                                })
+                                                                .then(function (response) {
+                                                                    if(response.status === 200) {
+                                                                        var res = response.data;
+                                                                        if(res.code === 0) {
+                                                                            alert("提交成功");
+                                                                            userAddr.style.display = "none";
+                                                                            btn.innerText = "已填写信息,等待发放奖品";
+                                                                        }else {
+                                                                            alert(res.message);
+                                                                        }
+                                                                    }
+                                                                })
+                                                            }
+                                                        }
+                                                    }
+                                                },false)
+
+                                            });
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                        // 显示中奖名单
+                        document.getElementById("reward").style.display = "block";
+                        var reHead = document.getElementsByClassName("reward-head");
+                        var reName = document.getElementsByClassName("reward-name");
+                        var reId = document.getElementsByClassName("reward-id");
+                        var rewardList = res.data.allRank;
+                        for(var i = 0; i< rewardList.length; i++) {
+                            if(i < 3) {
+                                reHead[i].src = rewardList[i].face;
+                                reName[i].innerText = rewardList[i].username;
+                                reId[i].innerText = rewardList[i].mid;
+                            }
+                        }
+
+                    }else {
+                        alert("活动状态错误");
+                    }
+                }else {
+                    alert(res.message);
+                }
+            }
+
+        })
+    }else {
+        btn.innerText = "下载分动圈";
+        btn.addEventListener("click",function () {
+            if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios)/i))) {
+                window.location.href = iosDownload;
+            }else if((navigator.userAgent.match(/(Android)/i))){
+                window.location.href = androidDownload;
+            }else{
+                window.location.href = androidDownload;
+            }
+        })
+    }
+
+
+    //打卡
+    function pushCard() {
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios)/i))) {
+            window.webkit.messageHandlers.sportStart.postMessage("");
+        }else if((navigator.userAgent.match(/(Android)/i))){
+            webview.sportStart();
+        }else{
+            console.log("运动打卡");
+        }
+    }
+
+    // 显示排行榜
+    function showRank(res) {
+        if(res.data.allRank && res.data.allRank !== null) {
+            var rank = document.getElementById("rank-list");
+            var all = res.data.allRank;
+            for(var i=0; i<all.length; i++) {
+                rank.innerHTML += "<li><span class='index'>"+all[i].rankNumber+"</span><img src='"+all[i].face+"' alt='avatar' class='avatar'><span class='username text-overflow'>"+all[i].username+"</span><span class='complete-date text-overflow'>"+all[i].recodeTimes+"</span></li>";
+            }
+        }
+    }
+
+    //得到图片的base64
+    function getBase64Image(drawObj) {
+        html2canvas(drawObj).then(function(canvas) {
+            // document.body.appendChild(canvas);
+            dataBase64 = canvas.toDataURL("image/png");
+            console.log(dataBase64);
+        });
+    }
+
+    // 点击分享，把base64图片传到app
+    function base64PicToAPP() {
+        // console.log(dataBase64)
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios)/i))) {
+            window.webkit.messageHandlers.shareBusinessResultImage.postMessage(dataBase64);
+            console.log("ios:"+dataBase64);
+        }else if((navigator.userAgent.match(/(Android)/i))){
+            webview.shareBusinessResultImage(dataBase64);
+            console.log("android:"+dataBase64);
+        }else{
+            console.log("base64图片传到app");
+        }
+    }
+
+</script>
+</body>
+</html>

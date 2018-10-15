@@ -1,0 +1,446 @@
+/*样式重置*/
+body,dl,dd,ul,dt,p,h1,h2,h3,h4,h5,h6,input,textarea{margin: 0;padding: 0;}
+ol,ul{list-style: none;}
+a{text-decoration: none;color: inherit;}
+img{vertical-align: middle;}
+.clearfix:after{content:""; display:block; clear:both;}
+
+/*通用样式*/
+.text-overflow {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/*开始*/
+html {
+    font-size: 100px;
+}
+body {
+    min-width: 320px;
+    max-width: 750px;
+    width: 100%;
+    margin: auto;
+    font-size: 16px;
+}
+.main {
+    background-image: url("../img/bg.png");
+    background-size: 100%;
+    padding-bottom: 2.10rem;
+}
+.main .libra {
+    position: relative;
+    height: 10.38rem;
+    background: url("../img/libra.png")no-repeat center top/100%;
+}
+.main .libra img {
+    position: absolute;
+    left: 0;
+    bottom: .75rem;
+    width: 100%;
+}
+.main .detail {
+    text-align: right;
+}
+.main .detail img {
+    width: 7.23rem;
+}
+
+.main .video-wrap {
+    width: 6.94rem;
+    height: 3.9rem;
+    margin: .8rem auto 0;
+}
+
+.main .tips .title img {
+    width: 4.98rem;
+    margin: .28rem 0 .4rem;
+}
+
+.main .tips .run {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    padding: 0 .13rem;
+}
+.main .tips .run div {
+    width: 2.15rem;
+    height: 2.65rem;
+    color: #fff;
+    text-align: center;
+    background-size: 100%;
+}
+.main .tips .run div:nth-child(1) {
+    background-image: url("../img/tips-bg-1.png");
+}
+.main .tips .run div:nth-child(2) {
+    background-image: url("../img/tips-bg-2.png");
+}
+.main .tips .run div:nth-child(3) {
+    background-image: url("../img/tips-bg-3.png");
+}
+.main .tips .run div p{
+    margin: .8rem 0 .2rem;
+    font-size: .3rem;
+}
+.main .tips .run div span {
+    display: inline-block;
+    width: .9rem;
+    line-height: .32rem;
+    font-size: .2rem;
+    border: 1px solid;
+    border-radius: .2rem;
+}
+.btn {
+    position: fixed;
+    bottom: .54rem;
+    left: 0;
+    right: 0;
+    width: 6.6rem;
+    height: .9rem;
+    margin: auto;
+    line-height: .9rem;
+    text-align: center;
+    color: #fff;
+    font-size: .32rem;
+    background-color: #ff902e;
+    border-radius: .45rem;
+}
+.btn.grey {
+    background-color: #888;
+}
+
+/*排行榜*/
+#rank {display: none}
+.main .rank {
+    margin-left: .43rem;
+    width: 6.79rem;
+    color: #ff902e;
+}
+.main .rank .rank-header {
+    position: relative;
+    height: .96rem;
+    margin-bottom: .36rem;
+    font-size: .32rem;
+    background-image: url("../img/rank-header.png");
+    background-size: 100%;
+}
+.main .rank .rank-header div {
+    position: absolute;
+    top: .28rem;
+    line-height: 1;
+}
+.main .rank .rank-header .complete {
+    left: 1.96rem;
+}
+.main .rank .rank-header .paiming {
+    left: 5rem;
+}
+.main .rank .rank-body {
+    position: relative;
+    border: 1px solid #ff902e;
+    width: 6.66rem;
+    margin-bottom: .77rem;
+
+}
+.main .rank .rank-body::before {
+    position: absolute;
+    top: .11rem;
+    left: 6.67rem;
+    content: '';
+    width: .1rem;
+    border-top: 1px solid;
+}
+/*.main .rank .rank-body::after {*/
+    /*position: absolute;*/
+    /*top: .11rem;*/
+    /*left: .08rem;*/
+    /*content: '';*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*border: 1px solid #ff902e;*/
+    /*border-top-color: transparent;*/
+    /*border-left-color: transparent;*/
+/*}*/
+.main .rank .rank-body .title-item {
+    display: inline-block;
+    padding: .33rem;
+    font-size: .26rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.main .rank .rank-body .title-item:nth-child(1) {
+    width: 24%;
+}
+.main .rank .rank-body .title-item:nth-child(2) {
+    width: 36%;
+}
+.main .rank .rank-body .rank-list {
+    font-size: .24rem;
+    color: #fff;
+    border-top: 1px solid #ff902e;
+    max-height: 8.61rem;
+    overflow: scroll;
+}
+.main .rank .rank-body .rank-list li:nth-child(1),
+.main .rank .rank-body .rank-list li:nth-child(2),
+.main .rank .rank-body .rank-list li:nth-child(3) {
+    color: #ff902e;
+}
+.main .rank .rank-body .rank-list li {
+    display: -webkit-flex;
+    display: flex;
+    height: .62rem;
+    margin-top: .23rem;
+}
+.main .rank .rank-body .rank-list li:last-child {
+    margin-bottom: .23rem;
+}
+.main .rank .rank-body .rank-list li span {
+    display: inline-block;
+    line-height: .62rem;
+}
+.main .rank .rank-body .rank-list li .index {
+    width: 1.07rem;
+    text-align: center;
+    font-size: .32rem;
+}
+.main .rank .rank-body .rank-list li .avatar {
+    overflow: hidden;
+    width: .62rem;
+    height: .62rem;
+    border-radius: 50%;
+}
+.main .rank .rank-body .rank-list li .username {
+    width: 1.5rem;
+    margin-left: .25rem;
+}
+.main .rank .rank-body .rank-list li .complete-date {
+    margin-left: .88rem;
+    width: 2.22rem;
+}
+
+/*获奖*/
+#reward {display: none;}
+.main .reward {
+    margin-left: .43rem;
+    width: 6.79rem;
+    height: 3.87rem;
+    color: #fff;
+    margin-bottom: .65rem;
+    background-image: url("../img/reward-bg.png");
+    background-size: 100%;
+}
+.main .reward::before {
+    display: table;
+    content: '';
+}
+.main .reward .reward-member {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    width: 5.66rem;
+    margin: 1.5rem auto 0;
+}
+.main .reward .reward-member li {
+    text-align: center;
+    font-size: .2rem;
+}
+.main .reward .reward-member li img {
+    width: 1.26rem;
+    height: 1.26rem;
+    margin-bottom: .1rem;
+    border: 1px solid #ff902e;
+    border-radius: 50%;
+}
+.main .reward .reward-member li .reward-name,
+.main .reward .reward-member li .reward-id {
+    width: 1.2rem;
+    margin: auto;
+    line-height: 1.5;
+}
+
+/*分享层*/
+.share-bg,
+.user-addr {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 7.5rem;
+    margin: auto;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+}
+#share-bg {
+    display: none;
+}
+.share-bg .share-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 6rem;
+    height: 8.8rem;
+}
+.share-bg .share-inner .close {
+    position: absolute;
+    right: -.6rem;
+    top: -.6rem;
+    z-index: 9;
+    width: 1rem;
+    height: 1rem;
+    background: url("../img/x.png")no-repeat center/.55rem .55rem;
+}
+.share-bg .share-inner .share-box {
+    position: relative;
+}
+.share-bg .share-inner .share-box .share-pic {
+    position: relative;
+    width: 6rem;
+    height: 7.51rem;
+}
+.share-bg .share-inner .share-box .share-pic li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    opacity: 0;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.share-bg .share-box .share-pic li .info {
+    padding: .3rem 0 0 .2rem;
+}
+.share-bg .share-box .share-pic li .head {
+    width: .8rem;
+    height: .8rem;
+    margin-right: .1rem;
+}
+.share-bg .share-box .share-pic li .full-name {
+    font-size: .3rem;
+}
+.share-bg .share-box .share-pic li:nth-child(1) {
+    background-image: url("../img/share-pic-1.png");
+}
+.share-bg .share-box .share-pic li:nth-child(2) {
+    background-image: url("../img/share-pic-2.png");
+}
+.share-bg .share-box .share-pic li:nth-child(3) {
+    background-image: url("../img/share-pic-3.png");
+}
+.share-bg .share-box .share-pic li:nth-child(4) {
+    background-image: url("../img/share-pic-4.png");
+}
+
+.share-bg .share-inner .share-box .change {
+    position: absolute;
+    bottom: .2rem;
+    right: .2rem;
+    line-height: .5rem;
+    padding: 0 .1rem;
+    font-size: .24rem;
+    border: 1px solid;
+    border-radius: .25rem;
+}
+.share-bg .share-inner .share-box .change .arrow {
+    display: inline-block;
+    width: .26rem;
+    height: .26rem;
+    vertical-align: middle;
+    margin-right: .1rem;
+    background-image: url("../img/arrow.png");
+    background-size: .26rem .26rem;
+}
+.share-bg .share-inner .share-btn {
+    width: 2.9rem;
+    height: .82rem;
+    line-height: .82rem;
+    text-align: center;
+    margin: .2rem auto 0;
+    background-color: #ff902e;
+    border-radius: .41rem;
+}
+
+/*填写领奖信息*/
+#user-addr {display: none}
+.user-addr .addr-inner{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 6.13rem;
+    height: 8.4rem;
+    /*border: 1px solid red;*/
+}
+.addr-inner .close {
+    position: relative;
+    left: 5.6rem;
+    width: 1.07rem;
+    height: 1.07rem;
+    background: url("../img/close-addr.png")no-repeat center/.67rem .67rem;
+    /*border: 1px solid #fff;*/
+}
+.addr-inner .info {
+    background-color: #fff;
+    /*border: 1px solid yellow;*/
+}
+.addr-inner .info .i-head {
+    height: 1.25rem;
+    background: #000 url("../img/i-head.png")no-repeat center/cover;
+}
+.addr-inner .info .i-body {
+    padding: .1rem .45rem .28rem;
+    color: #a7a7a7;
+    font-size: .2rem;
+}
+.addr-inner .info .i-body .red {
+    color: #f00;
+}
+/*.addr-inner .info .i-body ul {*/
+    /*border: 1px solid black;*/
+/*}*/
+.addr-inner .info .i-body li {
+    margin-bottom: .28rem;
+}
+.addr-inner .info .i-body li span {
+    display: inline-block;
+    padding-top: .1rem;
+    width: 12%;
+}
+.addr-inner .info .i-body li input {
+    height: .76rem;
+}
+.addr-inner .info .i-body li textarea {
+    height: 1.73rem;
+}
+.addr-inner .info .i-body li input,
+.addr-inner .info .i-body li textarea {
+    width: 88%;
+    border: 0;
+    background-color: #eee;
+    vertical-align: top;
+}
+.addr-inner .info .i-body .submit {
+    line-height: .83rem;
+    margin-left: 12%;
+    margin-bottom: .2rem;
+    color: #fff;
+    text-align: center;
+    background-color: #ff902e;
+    border-radius: .09rem;
+}
+.addr-inner .info .i-body .red-wrap {
+    margin-left: 12%;
+}
+#info-error {
+    height: .3rem;
+    margin-left: 12%;
+    color: #f00;
+}
