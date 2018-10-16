@@ -221,24 +221,27 @@
                         if(uSta === 0) {
                             btn.innerText = "活动报名";
                             // 报名
-                            var params = {
-                                mid: mid,
-                                activityId: 7
-                            };
-                            axios.get(signUpUrl, {
-                                params: params
-                            }).then(function (response) {
-                                if(response.status === 200) {
-                                    var res = response.data;
-                                    if(res.code === 0) {
-                                        btn.innerText = "报名成功";
-                                        setTimeout(function () {
-                                            location.reload();
-                                        },1000)
-                                    }else {
-                                        alert(res.message);
+                            btn.addEventListener("click", function () {
+                                var params = {
+                                    mid: mid,
+                                    activityId: 7
+                                };
+                                axios.get(signUpUrl, {
+                                    params: params
+                                }).then(function (response) {
+                                    console.log("报名了")
+                                    if(response.status === 200) {
+                                        var res = response.data;
+                                        if(res.code === 0) {
+                                            btn.innerText = "报名成功";
+                                            setTimeout(function () {
+                                                location.reload();
+                                            },1000)
+                                        }else {
+                                            alert(res.message);
+                                        }
                                     }
-                                }
+                                })
                             })
                         }else if(uSta === 2){
                             btn.innerText = "报名成功,等待开始"
