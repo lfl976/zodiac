@@ -75,7 +75,7 @@
             <img src="img/detail.png" alt="detail">
         </div>
         <div class="video-wrap">
-            <video width="100%" height="100%" controls>
+            <video id="video" width="100%" height="100%" controls poster="img/poster.png">
                 <source src="http://group.fundo.xyz/fundogroup_activity_video/%E5%A4%A9%E7%A7%A4%E5%BA%A7.mp4" type="video/mp4">
             </video>
         </div>
@@ -99,7 +99,9 @@
 
             </div>
         </div>
-        <div id="btn" class="btn"></div>
+        <div class="btn-wrap">
+            <div id="btn" class="btn"></div>
+        </div>
     </div>
     <!--S 分享-->
     <div id="share-bg" class="share-bg">
@@ -238,10 +240,9 @@
                                     }
                                 }
                             })
-                        }else if(uSta === 1){
+                        }else if(uSta === 2){
                             btn.innerText = "报名成功,等待开始"
                         }else {
-                            alert("userStatus:"+uSta);
                             btn.style.display = "none";
                         }
                     }else if(aSta === 2) {
@@ -257,11 +258,11 @@
                             paiming.innerText = "--";
                             btn.innerText = "报名已结束";
                             btn.className += " grey";
-                        }else if(uSta === 1) {
+                        }else if(uSta === 2) {
                             paiming.innerText = myRank.rankNumber;
                             btn.innerText = "运动打卡";
                             btn.addEventListener("click", pushCard ,false);
-                        }else if(uSta === 2){
+                        }else if(uSta === 3){
                             paiming.innerText = myRank.rankNumber;
                             btn.innerText = "喜大普奔,完成活动";
                             // 分享
@@ -295,80 +296,73 @@
                                 },false)
 
                             },false)
-                        }else {
-                            alert("userStatus:"+uSta);
                         }
                     }else if(aSta === 3) {
-                        if(uSta === 0) {
-                            btn.innerText = "您未报名";
-                        }else if(uSta === 1) {
-                            btn.innerText = "您未完成";
-                        }else if(uSta === 2) {
-                            // 判断完成的用户是否中奖
-                            if(res.data.myRank.isWinner === 0){
-                                btn.style.display = "none";
-                            }else if(res.data.myRank.isWinner === 1) {
-                                // 是否提交个人信息
-                                var params = {
-                                    mid: mid,
-                                    activityId: 7
-                                };
-                                axios.get(isSubmitInfoUrl, {
-                                    params: params
-                                })
-                                .then(function (response) {
-                                    var res = response.data;
-                                    if(res.code === 0) {
-                                        if(res.data.isFinish === 1) {
-                                            btn.innerText = "已填写信息,等待发放奖品";
-                                        }else if(res.data.isFinish === 0) {
-                                            // 没填写,地址
-                                            btn.innerText = "填写地址,领取奖品";
-                                            btn.addEventListener("click", function () {
-                                                var userAddr = document.getElementById("user-addr");
-                                                var addrClose = document.getElementById("addr-close");
-                                                var infoError = document.getElementById("info-error");
-                                                var username = document.getElementById("user-name");
-                                                var phone = document.getElementById("user-phone");
-                                                var address = document.getElementById("user-address");
-                                                var tijiao = document.getElementById("tijiao");
+                        // 判断完成的用户是否中奖
+                        if(res.data.myRank.isWinner === 0){
+                            btn.style.display = "none";
+                        }else if(res.data.myRank.isWinner === 1) {
+                            // 是否提交个人信息
+                            var params = {
+                                mid: mid,
+                                activityId: 7
+                            };
+                            axios.get(isSubmitInfoUrl, {
+                                params: params
+                            })
+                            .then(function (response) {
+                                var res = response.data;
+                                if(res.code === 0) {
+                                    if(res.data.isFinish === 1) {
+                                        btn.innerText = "已填写信息,等待发放奖品";
+                                    }else if(res.data.isFinish === 0) {
+                                        // 没填写,地址
+                                        btn.innerText = "填写地址,领取奖品";
+                                        btn.addEventListener("click", function () {
+                                            var userAddr = document.getElementById("user-addr");
+                                            var addrClose = document.getElementById("addr-close");
+                                            var infoError = document.getElementById("info-error");
+                                            var username = document.getElementById("user-name");
+                                            var phone = document.getElementById("user-phone");
+                                            var address = document.getElementById("user-address");
+                                            var tijiao = document.getElementById("tijiao");
 
-                                                userAddr.style.display = "block";
-                                                addrClose.addEventListener("touchstart", function () {
-                                                    userAddr.style.display = "none";
-                                                });
+                                            userAddr.style.display = "block";
+                                            addrClose.addEventListener("touchstart", function () {
+                                                userAddr.style.display = "none";
+                                            });
 
-                                                phone.addEventListener("change", function () {
-                                                    if(this.value === '') {
-                                                        infoError.innerText = "";
-                                                    }else if(!(/^1[34578]\d{9}$/.test(this.value))){
+                                            phone.addEventListener("change", function () {
+                                                if(this.value === '') {
+                                                    infoError.innerText = "";
+                                                }else if(!(/^1[34578]\d{9}$/.test(this.value))){
+                                                    infoError.innerText = "请输入正确的电话号码";
+                                                }
+                                            },false);
+
+                                            tijiao.addEventListener("touchstart",function () {
+                                                if(username.value === '') {
+                                                    infoError.innerText = "请输入用户名";
+                                                }else {
+                                                    if(phone.value === '') {
+                                                        infoError.innerText = "请输入电话号码";
+                                                    }else if(!(/^1[34578]\d{9}$/.test(this.value))) {
                                                         infoError.innerText = "请输入正确的电话号码";
-                                                    }
-                                                },false);
-
-                                                tijiao.addEventListener("touchstart",function () {
-                                                    if(username.value === '') {
-                                                        infoError.innerText = "请输入用户名";
                                                     }else {
-                                                        if(phone.value === '') {
-                                                            infoError.innerText = "请输入电话号码";
-                                                        }else if(!(/^1[34578]\d{9}$/.test(this.value))) {
-                                                            infoError.innerText = "请输入正确的电话号码";
+                                                        if(address.value === '') {
+                                                            infoError.innerText = "请输入地址";
                                                         }else {
-                                                            if(address.value === '') {
-                                                                infoError.innerText = "请输入地址";
-                                                            }else {
-                                                                // 没填写,地址
-                                                                var params = {
-                                                                    mid: mid,
-                                                                    activityId: 7,
-                                                                    username: username,
-                                                                    phone: phone,
-                                                                    address: address
-                                                                };
-                                                                axios.get(submitInfoUrl, {
-                                                                    params: params
-                                                                })
+                                                            // 没填写,地址
+                                                            var params = {
+                                                                mid: mid,
+                                                                activityId: 7,
+                                                                username: username,
+                                                                phone: phone,
+                                                                address: address
+                                                            };
+                                                            axios.get(submitInfoUrl, {
+                                                                params: params
+                                                            })
                                                                 .then(function (response) {
                                                                     if(response.status === 200) {
                                                                         var res = response.data;
@@ -381,16 +375,15 @@
                                                                         }
                                                                     }
                                                                 })
-                                                            }
                                                         }
                                                     }
-                                                },false)
+                                                }
+                                            },false)
 
-                                            });
-                                        }
+                                        });
                                     }
-                                })
-                            }
+                                }
+                            })
                         }
                         // 显示中奖名单
                         document.getElementById("reward").style.display = "block";

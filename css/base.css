@@ -91,11 +91,17 @@ body {
     border: 1px solid;
     border-radius: .2rem;
 }
-.btn {
+.btn-wrap {
     position: fixed;
-    bottom: .54rem;
+    bottom: .35rem;
     left: 0;
     right: 0;
+    max-width: 7.5rem;
+    margin: auto;
+    padding: .2rem 0;
+    background-color: #101010;
+}
+.btn {
     width: 6.6rem;
     height: .9rem;
     margin: auto;
