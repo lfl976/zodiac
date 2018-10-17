@@ -178,6 +178,7 @@
     var submitInfoUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/insertFundoAwardeeInfo.do";
     var isSubmitInfoUrl = "http://121.201.66.218:8080/fundogroup/content/activity/protal/queryAwardeeInfo.do";
     var btn = document.getElementById("btn");
+    var btnWrap = document.getElementsByClassName("btn-wrap")[0];
     var mid = getQueryString("mid");
     var dataBase64;
     var shareObj= {
@@ -229,7 +230,7 @@
                                     if(response.status === 200) {
                                         var res = response.data;
                                         if(res.code === 0) {
-                                            alert("报名成功\n活动时间为2018年10月19日");
+                                            alert("报名成功\n活动时间为2018年10月19日~2018年10月31日");
                                             setTimeout(function () {
                                                 location.reload();
                                             },1000)
@@ -272,6 +273,12 @@
                                 var liArr = document.querySelectorAll(".share-bg .share-pic li");
                                 var change = document.getElementById("change");
                                 var shareBtn = document.getElementById("share-btn");
+                                var headArr = document.getElementsByClassName("head");
+                                var fullName = document.getElementsByClassName("full-name");
+                                for (var i = 0; i < headArr.length; i++) {
+                                    fullName.innerText = myRank.username;
+                                }
+
                                 liArr[index].style.opacity = "1";
                                 getBase64Image(liArr[index]);
 
@@ -299,6 +306,7 @@
                         // 判断完成的用户是否中奖
                         if(res.data.myRank.isWinner === 0){
                             btn.style.display = "none";
+                            btnWrap.style.display = "none";
                         }else if(res.data.myRank.isWinner === 1) {
                             // 是否提交个人信息
                             var params = {
@@ -354,7 +362,7 @@
                                                             var params = {
                                                                 mid: mid,
                                                                 activityId: 7,
-                                                                username: username,
+                                                                name: username,
                                                                 phone: phone,
                                                                 address: address
                                                             };
@@ -405,6 +413,8 @@
                 }
             }
 
+        }).catch(function (error) {
+            alert("请求失败");
         })
     }else {
         btn.innerText = "下载分动圈";
