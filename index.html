@@ -50,10 +50,7 @@
         <!--E 获奖-->
         <!--S 排行榜-->
         <div id="rank" class="rank">
-            <div class="rank-header">
-                <div id="complete" class="complete"></div>
-                <div id="paiming" class="paiming"></div>
-            </div>
+            <div id="rank-header" class="rank-header"></div>
             <div class="rank-body">
                 <div class="table-title">
                     <div class="title-item">排名</div>
@@ -84,17 +81,17 @@
                 <img src="img/tips.png" alt="title">
             </div>
             <div class="run">
-                <div class="running">
+                <div>
                     <p>跑步前</p>
-                    <span>进入</span>
+                    <span class="running">进入</span>
                 </div>
-                <div class="running">
+                <div>
                     <p>跑步中</p>
-                    <span>进入</span>
+                    <span class="running">进入</span>
                 </div>
-                <div class="running">
+                <div>
                     <p>跑步后</p>
-                    <span>进入</span>
+                    <span class="running">进入</span>
                 </div>
 
             </div>
@@ -248,24 +245,23 @@
                             btn.style.display = "none";
                         }
                     }else if(aSta === 2) {
-                        var paiming = document.getElementById("paiming");
+                        var rHeader = document.getElementById("rank-header");
                         var finishCount = 0;
                         if(res.data.finishCount) finishCount = res.data.finishCount;
                         document.getElementById("rank").style.display = "block";
-                        document.getElementById("complete").innerText = finishCount;
 
                         // 显示排行榜
                         showRank(res);
                         if(uSta === 0) {
-                            paiming.innerText = "--";
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>';
                             btn.innerText = "报名已结束";
                             btn.className += " grey";
                         }else if(uSta === 2) {
-                            paiming.innerText = myRank.rankNumber;
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>,竞选手环幸运儿';
                             btn.innerText = "运动打卡";
                             btn.addEventListener("click", pushCard ,false);
                         }else if(uSta === 3){
-                            paiming.innerText = myRank.rankNumber;
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>我的排名,<span id="paiming" class="paiming">'+myRank.rankNumber+'</span>,';
                             btn.innerText = "喜大普奔,完成活动";
                             // 分享
                             btn.addEventListener("click", function () {
@@ -348,7 +344,7 @@
                                                 }else {
                                                     if(phone.value === '') {
                                                         infoError.innerText = "请输入电话号码";
-                                                    }else if(!(/^1[34578]\d{9}$/.test(this.value))) {
+                                                    }else if(!(/^1[34578]\d{9}$/.test(phone.value))) {
                                                         infoError.innerText = "请输入正确的电话号码";
                                                     }else {
                                                         if(address.value === '') {

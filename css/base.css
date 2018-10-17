@@ -128,22 +128,27 @@ body {
 .main .rank .rank-header {
     position: relative;
     height: .96rem;
+    line-height: .8rem;
+    text-align: center;
     margin-bottom: .36rem;
-    font-size: .32rem;
+    color: #fff;
     background-image: url("../img/rank-header.png");
     background-size: 100%;
 }
-.main .rank .rank-header div {
-    position: absolute;
-    top: .28rem;
+.main .rank .rank-header span {
+    /*position: absolute;*/
+    /*top: .28rem;*/
     line-height: 1;
+    font-size: .32rem;
+    color: #ff902e;
+    vertical-align: middle;
 }
-.main .rank .rank-header .complete {
-    left: 1.96rem;
-}
-.main .rank .rank-header .paiming {
-    left: 5rem;
-}
+/*.main .rank .rank-header .complete {*/
+    /*left: 1.96rem;*/
+/*}*/
+/*.main .rank .rank-header .paiming {*/
+    /*left: 5rem;*/
+/*}*/
 .main .rank .rank-body {
     position: relative;
     border: 1px solid #ff902e;
@@ -224,8 +229,8 @@ body {
     margin-left: .25rem;
 }
 .main .rank .rank-body .rank-list li .complete-date {
-    margin-left: .88rem;
-    width: 2.22rem;
+    margin-left: .8rem;
+    width: 2.5rem;
 }
 
 /*获奖*/
