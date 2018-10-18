@@ -16,13 +16,13 @@
     var link2 = 'http://mp.weixin.qq.com/s?__biz=MzAwNTA0MTgwOA==&mid=311409809&idx=1&sn=af6b84fb1593ee5d41184042141488dc&chksm=0c59a76e3b2e2e78c33510226ff7ca16329929000ad3933b3d38f0853223b4e267dd3083ee50#rd';
     var link3 = 'http://mp.weixin.qq.com/s?__biz=MzAwNTA0MTgwOA==&mid=311409810&idx=1&sn=32af04bb28ced12b5d0bdc1c0356df92&chksm=0c59a76d3b2e2e7bbcd8383c95e7021b2173deee0b935b7343679a483d871b6ad79a1ec59ecf#rd';
     var runList = document.getElementsByClassName("running");
-    runList[0].addEventListener("touchstart",function () {
+    runList[0].addEventListener("click",function () {
         window.location.href = link1;
     });
-    runList[1].addEventListener("touchstart",function () {
+    runList[1].addEventListener("click",function () {
         window.location.href = link2;
     });
-    runList[2].addEventListener("touchstart",function () {
+    runList[2].addEventListener("click",function () {
         window.location.href = link3;
     })
 })();
@@ -42,3 +42,16 @@ function getQueryString(name) {
     if (r != null) return decodeURI(r[2]);
     return null;
 }
+
+// 格式化小于10的数
+function formate(num) {
+    return num<=9? "0"+num:num+"";
+}
+
+// 没网时播放视频
+var myVid = document.getElementById("video");
+myVid.onloadeddata = function () {
+    if(!navigator.onLine) {
+        alert("请打开网络");
+    }
+};

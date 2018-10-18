@@ -230,7 +230,7 @@
                                     if(response.status === 200) {
                                         var res = response.data;
                                         if(res.code === 0) {
-                                            alert("报名成功\n活动时间为2018年10月19日~2018年10月31日");
+                                            alert("报名成功\n活动时间为2018年10月24日~2018年10月28日");
                                             setTimeout(function () {
                                                 location.reload();
                                             },1000)
@@ -254,15 +254,15 @@
                         // 显示排行榜
                         showRank(res);
                         if(uSta === 0) {
-                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>';
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>人完赛';
                             btn.innerText = "报名已结束";
                             btn.className += " grey";
                         }else if(uSta === 2) {
-                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>,竞选手环幸运儿';
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>人完赛,竞选手环幸运儿';
                             btn.innerText = "运动打卡";
                             btn.addEventListener("click", pushCard ,false);
                         }else if(uSta === 3){
-                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>我的排名,<span id="paiming" class="paiming">'+myRank.rankNumber+'</span>,';
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>人完赛,我的排名,<span id="paiming" class="paiming">'+myRank.rankNumber+'</span>,等待开奖';
                             btn.innerText = "喜大普奔,完成活动";
                             // 分享
                             btn.addEventListener("click", function () {
@@ -276,7 +276,8 @@
                                 var headArr = document.getElementsByClassName("head");
                                 var fullName = document.getElementsByClassName("full-name");
                                 for (var i = 0; i < headArr.length; i++) {
-                                    fullName.innerText = myRank.username;
+                                    headArr[i].src = myRank.face;
+                                    fullName[i].innerText = myRank.username;
                                 }
 
                                 liArr[index].style.opacity = "1";
@@ -448,7 +449,7 @@
             var rank = document.getElementById("rank-list");
             var all = res.data.allRank;
             for(var i=0; i<all.length; i++) {
-                rank.innerHTML += "<li><span class='index'>"+all[i].rankNumber+"</span><img src='"+all[i].face+"' alt='avatar' class='avatar'><span class='username text-overflow'>"+all[i].username+"</span><span class='complete-date text-overflow'>"+all[i].recodeTimes+"</span></li>";
+                rank.innerHTML += "<li><span class='index'>"+formate(all[i].rankNumber)+"</span><img src='"+all[i].face+"' alt='avatar' class='avatar'><span class='username text-overflow'>"+all[i].username+"</span><span class='complete-date text-overflow'>"+all[i].recodeTimes+"</span></li>";
             }
         }
     }

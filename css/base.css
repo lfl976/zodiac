@@ -21,6 +21,8 @@ body {
     width: 100%;
     margin: auto;
     font-size: 16px;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .main {
     background-color: #101010;
@@ -41,7 +43,7 @@ body {
     width: 100%;
 }
 .main .detail {
-    text-align: right;
+    text-align: center;
 }
 .main .detail img {
     width: 7.23rem;
@@ -95,7 +97,7 @@ body {
 }
 .btn-wrap {
     position: fixed;
-    bottom: .35rem;
+    bottom: 0;
     left: 0;
     right: 0;
     max-width: 7.5rem;
@@ -113,6 +115,7 @@ body {
     font-size: .32rem;
     background-color: #ff902e;
     border-radius: .45rem;
+    -webkit-touch-callout: none;
 }
 .btn.grey {
     background-color: #888;
@@ -121,7 +124,7 @@ body {
 /*排行榜*/
 #rank {display: none}
 .main .rank {
-    margin-left: .43rem;
+    margin-left: .4rem;
     width: 6.79rem;
     color: #ff902e;
 }
@@ -426,6 +429,7 @@ body {
     display: inline-block;
     padding-top: .1rem;
     width: 12%;
+    font-size: .26rem;
 }
 .addr-inner .info .i-body li input {
     height: .76rem;
@@ -437,6 +441,7 @@ body {
 .addr-inner .info .i-body li textarea {
     width: 88%;
     border: 0;
+    text-indent: .15rem;
     background-color: #eee;
     vertical-align: top;
 }
