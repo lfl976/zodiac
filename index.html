@@ -395,16 +395,10 @@
                         }
                         // 显示中奖名单
                         document.getElementById("reward").style.display = "block";
-                        var reHead = document.getElementsByClassName("reward-head");
-                        var reName = document.getElementsByClassName("reward-name");
-                        var reId = document.getElementsByClassName("id");
+                        var reMember = document.getElementsByClassName("reward-member")[0];
                         var rewardList = res.data.allRank;
                         for(var i = 0; i< rewardList.length; i++) {
-                            if(i < 3) {
-                                reHead[i].src = rewardList[i].face;
-                                reName[i].innerText = rewardList[i].username;
-                                reId[i].innerText = rewardList[i].mid;
-                            }
+                            reMember.innerHTML+='<li><img src="'+rewardList[i].face+'" alt="avatar" class="reward-head"><div class="reward-name text-overflow">'+rewardList[i].username+'</div><div class="reward-id text-overflow"><span>ID:</span><span class="id">'+rewardList[i].mid+'</span></div></li>';
                         }
 
                     }else {
