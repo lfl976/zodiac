@@ -50,7 +50,7 @@ function formate(num) {
 
 // 没网时播放视频
 var myVid = document.getElementById("video");
-myVid.onloadeddata = function () {
+myVid.onplay = function () {
     if(!navigator.onLine) {
         alert("请打开网络");
     }

@@ -33,6 +33,7 @@
         <!--E 获奖-->
         <!--S 排行榜-->
         <div id="rank" class="rank">
+            <div class="ract"></div>
             <div id="rank-header" class="rank-header"></div>
             <div class="rank-body">
                 <div class="table-title">
@@ -55,7 +56,7 @@
             <img src="img/detail.png" alt="detail">
         </div>
         <div class="video-wrap">
-            <video id="video" width="100%" height="100%" controls poster="img/poster.png">
+            <video id="video" width="100%" height="100%" preload="none" controls poster="img/poster.png">
                 <source src="http://group.fundo.xyz/fundogroup_activity_video/%E5%A4%A9%E7%A7%A4%E5%BA%A7.mp4" type="video/mp4">
             </video>
         </div>
@@ -92,25 +93,25 @@
                     <li>
                         <div class="info">
                             <img src="img/头像.png" alt="head" class="head">
-                            <span class="full-name">Dua Li</span>
+                            <span class="full-name"></span>
                         </div>
                     </li>
                     <li>
                         <div class="info">
                             <img src="img/头像.png" alt="head" class="head">
-                            <span class="full-name">Dua 2</span>
+                            <span class="full-name"></span>
                         </div>
                     </li>
                     <li>
                         <div class="info">
                             <img src="img/头像.png" alt="head" class="head">
-                            <span class="full-name">Dua 3</span>
+                            <span class="full-name"></span>
                         </div>
                     </li>
                     <li>
                         <div class="info">
                             <img src="img/头像.png" alt="head" class="head">
-                            <span class="full-name">Dua 4</span>
+                            <span class="full-name"></span>
                         </div>
                     </li>
                 </ul>
@@ -163,6 +164,8 @@
     var btn = document.getElementById("btn");
     var btnWrap = document.getElementsByClassName("btn-wrap")[0];
     var mid = getQueryString("mid");
+    var raBody = document.getElementsByClassName("rank-body")[0];
+    var ract = document.getElementsByClassName("ract")[0];
     var dataBase64;
     var shareObj= {
         "shareTitleName": "12星座跑-完美之神-天秤座",
@@ -259,7 +262,6 @@
                                 var headArr = document.getElementsByClassName("head");
                                 var fullName = document.getElementsByClassName("full-name");
                                 for (var i = 0; i < headArr.length; i++) {
-                                    headArr[i].src = myRank.face;
                                     fullName[i].innerText = myRank.username;
                                 }
 
@@ -302,24 +304,41 @@
                             .then(function (response) {
                                 var res = response.data;
                                 if(res.code === 0) {
+                                    var userAddr = document.getElementById("user-addr");
+                                    var addrClose = document.getElementById("addr-close");
+                                    var infoError = document.getElementById("info-error");
+                                    var username = document.getElementById("user-name");
+                                    var phone = document.getElementById("user-phone");
+                                    var address = document.getElementById("user-address");
+                                    var tijiao = document.getElementById("tijiao");
+
+                                    addrClose.addEventListener("touchstart", function () {
+                                        userAddr.style.display = "none";
+                                    });
+
+                                    function dis() {
+                                        username.disabled = true;
+                                        phone.disabled = true;
+                                        address.disabled = true;
+                                        tijiao.style.opacity = ".5";
+                                    }
+
                                     if(res.data.isFinish === 1) {
                                         btn.innerText = "已填写信息,等待发放奖品";
+                                        btn.addEventListener("click", function () {
+                                            userAddr.style.display = "block";
+                                            username.value = res.data.name;
+                                            phone.value = res.data.phone;
+                                            address.value = res.data.address;
+                                            dis();
+                                        },false)
                                     }else if(res.data.isFinish === 0) {
                                         // 没填写,地址
                                         btn.innerText = "填写地址,领取奖品";
                                         btn.addEventListener("click", function () {
-                                            var userAddr = document.getElementById("user-addr");
-                                            var addrClose = document.getElementById("addr-close");
-                                            var infoError = document.getElementById("info-error");
-                                            var username = document.getElementById("user-name");
-                                            var phone = document.getElementById("user-phone");
-                                            var address = document.getElementById("user-address");
-                                            var tijiao = document.getElementById("tijiao");
 
                                             userAddr.style.display = "block";
-                                            addrClose.addEventListener("touchstart", function () {
-                                                userAddr.style.display = "none";
-                                            });
+
 
                                             phone.addEventListener("change", function () {
                                                 if(this.value === '') {
@@ -331,7 +350,8 @@
                                                 }
                                             },false);
 
-                                            tijiao.addEventListener("touchstart",function () {
+                                            tijiao.addEventListener("touchstart", send, false);
+                                                function send() {
                                                 if(username.value === '') {
                                                     infoError.innerText = "请输入用户名";
                                                 }else {
@@ -359,6 +379,8 @@
                                                                         var res = response.data;
                                                                         if(res.code === 0) {
                                                                             alert("提交成功");
+                                                                            dis();
+                                                                            tijiao.removeEventListener("touchstart", send, false);
                                                                             userAddr.style.display = "none";
                                                                             btn.innerText = "已填写信息,等待发放奖品";
                                                                         }else {
@@ -369,7 +391,7 @@
                                                         }
                                                     }
                                                 }
-                                            },false)
+                                            }
 
                                         });
                                     }
@@ -428,6 +450,7 @@
             for(var i=0; i<all.length; i++) {
                 rank.innerHTML += "<li><span class='index'>"+formate(all[i].rankNumber)+"</span><img src='"+all[i].face+"' alt='avatar' class='avatar'><span class='username text-overflow'>"+all[i].username+"</span><span class='complete-date text-overflow'>"+all[i].recodeTimes+"</span></li>";
             }
+            ract.style.height = raBody.clientHeight + 5 +"px";
         }
     }
 
