@@ -20,31 +20,14 @@
         <!--S 获奖-->
         <div id="reward" class="reward">
             <ul class="reward-member">
-                <li>
-                    <img src="img/头像.png" alt="avatar" class="reward-head">
-                    <div class="reward-name text-overflow"></div>
-                    <div class="reward-id text-overflow">
-                        <span>ID:</span>
-                        <span class="id"></span>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/头像.png" alt="avatar" class="reward-head">
-                    <div class="reward-name text-overflow"></div>
-                    <div class="reward-id text-overflow">
-                        <span>ID:</span>
-                        <span class="id"></span>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/头像.png" alt="avatar" class="reward-head">
-                    <div class="reward-name text-overflow"></div>
-                    <div class="reward-id text-overflow">
-                        <span>ID:</span>
-                        <span class="id"></span>
-                    </div>
-                </li>
-
+                <!--<li>-->
+                    <!--<img src="img/头像.png" alt="avatar" class="reward-head">-->
+                    <!--<div class="reward-name text-overflow"></div>-->
+                    <!--<div class="reward-id text-overflow">-->
+                        <!--<span>ID:</span>-->
+                        <!--<span class="id"></span>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
         </div>
         <!--E 获奖-->
@@ -262,7 +245,7 @@
                             btn.innerText = "运动打卡";
                             btn.addEventListener("click", pushCard ,false);
                         }else if(uSta === 3){
-                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>人完赛,我的排名,<span id="paiming" class="paiming">'+myRank.rankNumber+'</span>,等待开奖';
+                            rHeader.innerHTML = '已有<span id="complete" class="complete">'+finishCount+'</span>人完赛,我的排名<span id="paiming" class="paiming">'+myRank.rankNumber+'</span>,等待开奖';
                             btn.innerText = "喜大普奔,完成活动";
                             // 分享
                             btn.addEventListener("click", function () {
