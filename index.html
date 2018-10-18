@@ -142,7 +142,7 @@
 
                     </ul>
                     <div id="tijiao" class="submit">提交</div>
-                    <div class="red-wrap"><i class="red">* </i>请在2018.10.26 24:00前填写领奖信息</div>
+                    <div class="red-wrap"><i class="red">* </i>请在2018.10.31 24:00前填写领奖信息</div>
                 </div>
             </div>
         </div>
@@ -347,9 +347,9 @@
                                                             var params = {
                                                                 mid: mid,
                                                                 activityId: 7,
-                                                                name: username,
-                                                                phone: phone,
-                                                                address: address
+                                                                name: username.value,
+                                                                phone: phone.value,
+                                                                address: address.value
                                                             };
                                                             axios.get(submitInfoUrl, {
                                                                 params: params
