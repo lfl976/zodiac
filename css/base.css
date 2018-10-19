@@ -47,10 +47,12 @@ body {
 }
 .main .detail img {
     width: 7.23rem;
+    max-width: 96.4%;
 }
 
 .main .video-wrap {
     width: 6.94rem;
+    max-width: 93%;
     height: 3.9rem;
     margin: .8rem auto 0;
 }
@@ -127,6 +129,7 @@ body {
     position: relative;
     margin-left: .4rem;
     width: 6.79rem;
+    max-width: 91%;
     color: #ff902e;
 }
 .main .rank .ract {
@@ -251,6 +254,7 @@ body {
 .main .reward {
     margin-left: .43rem;
     width: 6.79rem;
+    max-width: 91%;
     height: 3.87rem;
     color: #fff;
     margin-bottom: .65rem;
@@ -328,7 +332,7 @@ body {
 .share-bg .share-inner .share-box .share-pic {
     position: relative;
     width: 6rem;
-    height: 7.51rem;
+    height: 7.5rem;
 }
 .share-bg .share-inner .share-box .share-pic li {
     position: absolute;
@@ -466,6 +470,7 @@ body {
 }
 .addr-inner .info .i-body .red-wrap {
     margin-left: 12%;
+    word-break: break-all;
 }
 #info-error {
     height: .3rem;
