@@ -143,7 +143,7 @@
 
                     </ul>
                     <div id="tijiao" class="submit">提交</div>
-                    <div class="red-wrap"><i class="red">* </i>请在2018.10.31 24:00前填写领奖信息</div>
+                    <div class="red-wrap"><i class="red">* </i><span id="tishi">请在2018.10.31 24:00前填写领奖信息</span></div>
                 </div>
             </div>
         </div>
@@ -312,7 +312,7 @@
                                     var address = document.getElementById("user-address");
                                     var tijiao = document.getElementById("tijiao");
 
-                                    addrClose.addEventListener("touchstart", function () {
+                                    addrClose.addEventListener("click", function () {
                                         userAddr.style.display = "none";
                                     });
 
@@ -321,6 +321,8 @@
                                         phone.disabled = true;
                                         address.disabled = true;
                                         tijiao.style.opacity = ".5";
+                                        tijiao.style.display = "none";
+                                        document.getElementById("tishi").innerText = "最新奖品发放进度请联系【动哥微信号：fendongge】进行咨询";
                                     }
 
                                     if(res.data.isFinish === 1) {
@@ -363,6 +365,7 @@
                                                         if(address.value === '') {
                                                             infoError.innerText = "请输入地址";
                                                         }else {
+                                                            infoError.innerText = '';
                                                             // 没填写,地址
                                                             var params = {
                                                                 mid: mid,
